@@ -1,4 +1,5 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -13,6 +14,10 @@ AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked{
   success_msg:boolean = true;
   superPower='';
   username="king";
+  isDarkTheme =true;
+  terms:boolean=false;
+  firstname: string ='';
+  customerType: number=0;
   contacts=[{
     'firstName':'bhargav',
     'lastName':'Dommaraju',
@@ -53,5 +58,15 @@ AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked{
  }
  ngAfterViewChecked(): void {
   console.log('On After View Checked');
+ }
+
+ addCustomer(form: NgForm){
+  console.log(form.value);
+  //validations
+  //Data Processing
+  //Call APi to save data
+ }
+ resetForm(form: NgForm){
+  form.reset();
  }
 }

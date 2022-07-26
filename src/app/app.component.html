@@ -1,4 +1,9 @@
+<div class="darktheme">
 <h1 >{{page_heading}} {{title}} </h1>
+
+  <mat-slide-toggle>Slide me!</mat-slide-toggle>
+
+
 <!--<table>
   <tr>
     <th>ContactId</th>
@@ -42,4 +47,21 @@
   <div [ngClass]="'c1'">Ng class</div>
   <div [ngClass]="'c1 c2'">Ng class</div>
 <app-list-profile></app-list-profile>-->
+
 <router-outlet></router-outlet>
+
+<form #addCustomerForm="ngForm" (submit)="addCustomer(addCustomerForm)">
+  <input type="text" [(ngModel)]="firstname" name="firstname" required>
+  <br>
+  <input type="checkbox" [(ngModel)]="terms" name="terms" required>Accept Terms and Conditions
+  <br>
+  <select [(ngModel)]="customerType" name="customerType">
+    <option value="1">Normal</option>
+    <option value="2">Premium</option>
+  </select>
+  <button type="submit" [disabled]="!addCustomerForm.valid">Add Customer</button>
+  <button class="btn btn-link" (click)="resetForm(addCustomerForm)">Reset Form</button>
+</form>
+
+<div> {{ firstname }}</div>
+</div>
